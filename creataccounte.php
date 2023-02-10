@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Page d'accueil</title>
+    <title>PRP</title>
     <link rel="icon" type="image/x-icon" href="assets/img/2000522.png" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -15,8 +15,8 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
-    <!-- truc jeu -->
-    <link rel="stylesheet" href="css/style_config.css">
+    <link href="css/style_config.css" rel="stylesheet" />
+    <link href="css/style_connexion.css" rel="stylesheet" />
 
 </head>
 
@@ -24,7 +24,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="#page-top">LRDHG</a>
+            <a class="navbar-brand" href="#page-top">Les PRP</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars"></i>
@@ -32,7 +32,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#config">Config</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#inscription">Inscription</a></li>
                 </ul>
             </div>
         </div>
@@ -42,59 +42,43 @@
         <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
             <div class="d-flex justify-content-center">
                 <div class="text-center">
-                    <h1 class="mx-auto my-0 text-uppercase">LRDHG</h1>
-                    <h2 class="text-white-50 mx-auto mt-2 mb-5"></h2>
-                    <a class="btn btn-primary" href="#config">Les config</a>
-                    <a class="btn btn-primary" href="creataccounte.php#inscription">créer votre compte</a>
+                    <h1 class="mx-auto my-0 text-uppercase">PRP</h1>
+                    <h2 class="text-white-50 mx-auto mt-2 mb-5">A free, responsive, one page Bootstrap theme created by Start Bootstrap.</h2>
+                    <a class="btn btn-primary" href="index.php#config">Les config</a>
                 </div>
             </div>
         </div>
     </header>
-    <!-- config-->
-    <section class="pricing_part padding_top" id="config">
+    <!-- create-->
+    <section class="pricing_part padding_top" id="inscription">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="section_tittle text-center">
-                        <h2>Les configuration disponible :</h2>
+                        
+                            <h2>Inscription :</h2>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-3 col-sm-6">
                     <div class="single_pricing_part">
-                        <p>Pack Bronze</p>
-                        <h3>17€</h3>
-                        <ul>
-                            <li>i5 12 eme gen</li>
-                            <li>RTX 2060 super</li>
-                            <li>16go RAM</li>
-                        </ul>
-                        <a href="formulaire.php?id=1" class="btn_2">Réserver sa configuration</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single_pricing_part">
-                        <p>Pack Diamant</p>
-                        <h3>43€</h3>
-                        <ul>
-                            <li>i7 12 eme gen</li>
-                            <li>RTX 3060Ti</li>
-                            <li>16go RAM</li>
-                        </ul>
-                        <a href="formulaire.php?id=4" class="btn_2">Réserver sa configuration</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single_pricing_part">
-                        <p>Pack Obsidienne</p>
-                        <h3>55€</h3>
-                        <ul>
-                            <li>i9 13 eme gen</li>
-                            <li>RTX 3090</li>
-                            <li>32go RAM</li>
-                        </ul>
-                        <a href="formulaire.php?id=5" class="btn_2">Réserver sa configuration</a>
+                        <form action="enregistre.php" method="POST">
+                        <label><b>Nom</b></label>
+                        <input type="text" placeholder="Entrer votre Nom" name="nom" required>
+
+                        <label><b>Prenom</b></label>
+                        <input type="text" placeholder="Entrer votre prénom" name="prenom" required>
+                        <input type="submit" id='submit' value='S inscrire' class="btn_2">
+
+                        <?php
+                        if (isset($_GET['erreur'])) {
+                            $err = $_GET['erreur'];
+                            if ($err == 1 || $err == 2)
+                                echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p>";
+                        }
+                        ?>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -130,7 +114,7 @@
                             <i class="fas fa-mobile-alt text-primary mb-2"></i>
                             <h4 class="text-uppercase m-0">Phone</h4>
                             <hr class="my-4 mx-auto" />
-                            <div class="small text-black-50">061234</div>
+                            <div class="small text-black-50">+1 (555) 902-8832</div>
                         </div>
                     </div>
                 </div>
